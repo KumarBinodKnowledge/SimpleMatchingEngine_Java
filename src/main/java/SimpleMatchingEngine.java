@@ -18,16 +18,18 @@ public class SimpleMatchingEngine {
         // 1. symbol2BuyOrderBookMap
         // 2. symbol2SellOrderBokMap
 
-        try {
-            writer = new PrintWriter(new BufferedWriter(new FileWriter("src\\main\\resources\\rejected.txt", true)));
-            buyOrderWriter = new PrintWriter(new BufferedWriter(new FileWriter("src\\main\\resources\\buy_orderbook.txt", true)));
-            sellOrderWriter = new PrintWriter(new BufferedWriter(new FileWriter("src\\main\\resources\\sell_orderbook.txt", true)));
+        try
+        {
+            // the '/' and '\\' both path separator works.
+            writer = new PrintWriter(new BufferedWriter(new FileWriter("src/main/resources/output/rejected.txt", true)));
+            buyOrderWriter = new PrintWriter(new BufferedWriter(new FileWriter("src/main/resources/output/buy_orderbook.txt", true)));
+            sellOrderWriter = new PrintWriter(new BufferedWriter(new FileWriter("src/main/resources/output/sell_orderbook.txt", true)));
         } catch (IOException e) {
             e.printStackTrace();
         }
         Order.populateSymbolStatusMap();
         // Read the orders.csv
-        try (BufferedReader in = new BufferedReader(new FileReader("src/main/resources/orders.csv"))) {
+        try (BufferedReader in = new BufferedReader(new FileReader("src/main/resources/input/orders.csv"))) {
             String strOrder;
             while ((strOrder = in.readLine()) != null) {
                 String[] tokens = strOrder.split(",");

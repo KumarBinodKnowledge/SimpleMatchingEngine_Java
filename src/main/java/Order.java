@@ -33,7 +33,7 @@ public class Order implements Cloneable {
      */
     static void populateSymbolStatusMap() {
         // read symbols.txt and populate symbol map--------------------------------------------------------------
-        try (BufferedReader in = new BufferedReader(new FileReader("src\\main\\resources\\symbols.csv"))) {
+        try (BufferedReader in = new BufferedReader(new FileReader("src/main/resources/input/orders.csv"))) {
             String str = null;
 
             while ((str = in.readLine()) != null) {
